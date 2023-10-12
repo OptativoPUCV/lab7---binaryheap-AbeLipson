@@ -3,3 +3,17 @@ Thu 12 Oct 2023 02:36:37 PM UTC:
  1 file changed, 5 insertions(+), 2 deletions(-)
  tests:  0|0
 4da55bf
+Thu 12 Oct 2023 02:38:42 PM UTC: 
+ heap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+heap.c: In function ‘createHeap’:
+heap.c:39:18: error: statement with no effect [-Werror=unused-value]
+   39 |   heap->heapArray[3];
+      |   ~~~~~~~~~~~~~~~^~~
+heap.c:39:7: error: ‘*heap.heapArray’ is used uninitialized [-Werror=uninitialized]
+   39 |   heap->heapArray[3];
+      |   ~~~~^~~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+4515a54
