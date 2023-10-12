@@ -29,17 +29,28 @@ void heap_push(Heap *pq, void *data, int priority) {
   newElem->data = data;
   newElem->priority = priority;
 
-  if (pq->size == 0){
-    pq->heapArray[0] = *newElem;
+  if (pq->size == pq->capac) {
+    pq->capac = pq->capac * 2 + 1;
+    pq->heapArray = realloc(pq->heapArray, pq->capac * sizeof(heapElem));
   }
-  else if (pq->size == pq->capac){
-    pq->heapArray = realloc(pq->heapArray, pq->capac*2+1);
-    heap_push(pq,data,priority);
+  pq->heapArray[pq->size] = *newElem;
+  
+  int currIndex = pq->size;
+  while(currIndex>0){
+    int parentIndex = (currIndex-1)/2;
+
+    if(pq->heapArray[currIndex].data > pq->heapArray[parentIndex].data){
+      heapElem aux = pq->heapArray[currIndex];
+      pq->heapArray[currIndex] = pq->heapArray[parentIndex];
+      pq->heapArray[parentIndex] = aux;
+      
+    }
+    else{
+      break;
+    }
+    currIndex = parentIndex;
   }
-  else{
-    pq->heapArray[pq->size] = *newElem;
-    
-  }
+  
   pq->size++;
 }
 
