@@ -17,3 +17,9 @@ heap.c:39:7: error: ‘*heap.heapArray’ is used uninitialized [-Werror=uniniti
 cc1: all warnings being treated as errors
 Compilation failed
 4515a54
+Thu 12 Oct 2023 02:40:52 PM UTC: 
+ heap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  1|3
+total_score: 10/70
+48f6363
